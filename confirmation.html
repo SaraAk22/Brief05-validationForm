@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <fieldset id="showPage">
+            <legend>Confirmation</legend>
+            <p id="confirmation"></p>
+            <div id="coonrdoneeValide"></div>
+        </fieldset>
+    </section>
+<script>
+    //Send data to Index.html
+    let confirmation =document.getElementById("confirmation").innerHTML;
+    window.localStorage.setItem('confirmationBinding',confirmation);
+    let result= document.getElementById("coonrdoneeValide");
+    window.localStorage.setItem('resultBinding',result);
+
+
+    //recieve data from Index.html
+    confirmation= window.localStorage.getItem('confirmationReturn')
+    
+    result =window.localStorage.getItem('resultBinding')
+    //  put data in there place
+    document.getElementById("confirmation").innerHTML= confirmation
+    document.getElementById("coonrdoneeValide").innerHTML= result
+
+    // name= window.localStorage.getItem(name)
+    // console.log(name)
+    // firstName= window.localStorage.getItem(firstName)
+    // console.log(firstName)
+    // email = window.localStorage.getItem(emai)
+    // tele =window.localStorage.getItem(tele)
+    // genreSelectValues= window.localStorage.getItem(genreSelectValues)
+    // groupSelectValues =window.localStorage.getItem(groupSelectValues)
+    // selected= window.localStorage.getItem(selected)
+
+
+//     document.getElementById("coonrdoneeValide").innerHTML= "<h3>"+"Vous etes bien enregistrer autant que: "+name + "</h3>" +
+//   "<h3>"+"Votre Prénom est : "+firstName+ "</h3>" +
+//   "<h3>"+"Votre email est : "+email + "</h3>" +
+//   "<h3>"+"Votre Télephone est : "+tele + "</h3>" +
+//   "<h3>"+"Votre Genre est : "+genreSelectValues + "</h3>" +
+//   "<h3>"+"le Groupe choisi est : "+groupSelectValues + "</h3>" +
+//   "<h3>"+"Votre choix du Club(s) est : "+ "<bold>" +selected +"</bold>"+ "</h3>" ; 
+    console.log(confirmation)
+    console.log(result)
+   
+</script>
+<style>
+    legend{
+                font-size: 1.5em;
+            }
+            section{
+                width: 50%;
+                margin: auto;
+                background-color:  #a52a2a9e;
+                padding: 2% 5%;
+            }
+            fieldset{
+              
+                line-height: 1em;
+                padding: 2% 5%;
+                
+            }
+</style>
+    
+</body>
+</html>
