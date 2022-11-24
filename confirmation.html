@@ -7,50 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- sdgsfd -->
     <section>
         <fieldset id="showPage">
             <legend>Confirmation</legend>
-            <p id="confirmation"></p>
+            <h3 id="confirmation"></h3>
             <div id="coonrdoneeValide"></div>
         </fieldset>
     </section>
 <script>
-    //Send data to Index.html
     let confirmation =document.getElementById("confirmation").innerHTML;
-    window.localStorage.setItem('confirmationBinding',confirmation);
     let result= document.getElementById("coonrdoneeValide");
-    window.localStorage.setItem('resultBinding',result);
+
+    //Save data 
+    window.localStorage.setItem('confirmationBinding',confirmation);
+    // window.localStorage.setItem('resultBinding',result);
 
 
     //recieve data from Index.html
     confirmation= window.localStorage.getItem('confirmationReturn')
-    
-    result =window.localStorage.getItem('resultBinding')
+    result =window.localStorage.getItem('showRegistation')
+
     //  put data in there place
     document.getElementById("confirmation").innerHTML= confirmation
     document.getElementById("coonrdoneeValide").innerHTML= result
 
-    // name= window.localStorage.getItem(name)
-    // console.log(name)
-    // firstName= window.localStorage.getItem(firstName)
-    // console.log(firstName)
-    // email = window.localStorage.getItem(emai)
-    // tele =window.localStorage.getItem(tele)
-    // genreSelectValues= window.localStorage.getItem(genreSelectValues)
-    // groupSelectValues =window.localStorage.getItem(groupSelectValues)
-    // selected= window.localStorage.getItem(selected)
-
-
-//     document.getElementById("coonrdoneeValide").innerHTML= "<h3>"+"Vous etes bien enregistrer autant que: "+name + "</h3>" +
-//   "<h3>"+"Votre Prénom est : "+firstName+ "</h3>" +
-//   "<h3>"+"Votre email est : "+email + "</h3>" +
-//   "<h3>"+"Votre Télephone est : "+tele + "</h3>" +
-//   "<h3>"+"Votre Genre est : "+genreSelectValues + "</h3>" +
-//   "<h3>"+"le Groupe choisi est : "+groupSelectValues + "</h3>" +
-//   "<h3>"+"Votre choix du Club(s) est : "+ "<bold>" +selected +"</bold>"+ "</h3>" ; 
-    console.log(confirmation)
-    console.log(result)
    
 </script>
 <style>
