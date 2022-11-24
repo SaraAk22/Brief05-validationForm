@@ -36,17 +36,8 @@ function validationForm() {
     }
   }
   
-  let showRegistation = 
-  "<h3>"+"Vous etes bien enregistrer autant que: "+name + "</h3>" +
-  "<h3>"+"Votre Prénom est : "+firstName+ "</h3>" +
-  "<h3>"+"Votre email est : "+email + "</h3>" +
-  "<h3>"+"Votre Télephone est : "+tele + "</h3>" +
-  "<h3>"+"Votre Genre est : "+genreSelectValues + "</h3>" +
-  "<h3>"+"le Groupe choisi est : "+groupSelectValues + "</h3>" +
-  "<h3>"+"Votre choix du Club(s) est : "+ "<bold>" +selected +"</bold>"+ "</h3>" ;
- 
- 
-
+  let showRegistation = [] ;
+   
   if (name.length == "" || name.length > 30 || namePattern.test(name) < 0) {
     document.getElementById("nameError").innerHTML ="Veuillez saisez votre name!!";
   }
@@ -94,40 +85,33 @@ function validationForm() {
     groupSelectValues.length !== 0 &&
     selected.length !== 0 
   ) {
-    // window.location.replace("#showPage");
-    
-    // let confirmation =document.getElementById("confirmation").innerHTML
-    // window.localStorage.setItem('data',confirmation)
-    // window.localStorage.getItem('data')
-    // document.getElementById('showPage').style.display='block';
+
 
     //Binding Data with second page : confirmation.html 
-    
-  //   "<h3>"+"Vous etes bien enregistrer autant que: "+name + "</h3>" +
-  // "<h3>"+"Votre Prénom est : "+firstName+ "</h3>" +
-  // "<h3>"+"Votre email est : "+email + "</h3>" +
-  // "<h3>"+"Votre Télephone est : "+tele + "</h3>" +
-  // "<h3>"+"Votre Genre est : "+genreSelectValues + "</h3>" +
-  // "<h3>"+"le Groupe choisi est : "+groupSelectValues + "</h3>" +
-  // "<h3>"+"Votre choix du Club(s) est : "+ "<bold>" +selected +"</bold>"+ "</h3>" ; 
+  
+              //recieve data from confirmation.html
+    var confirmationReturn= window.localStorage.getItem('confirmationBinding')
+    // var resultBinding=  window.localStorage.getItem('resultBinding')
+
+              //Assign values to this Data
+    confirmationReturn ="votre Inscription est bien valider !!";
+    showRegistation.push( 
+      `<p>Vous etes bien enregistrer autant que: <strong>${name} </strong></p>
+    <p>Votre Prénom est :<strong>${firstName} </strong></p>
+    <p>Votre email est : <strong>${email } </strong></p>
+    <p>Votre Télephone est :<strong>${tele} </strong></p>
+    <p>Votre Genre est : <strong>${genreSelectValues} </strong></p> 
+    <p>Votre Groupe choisi est :<strong>${groupSelectValues} </strong></p> 
+    <p>Votre choix du Club(s) est : <strong>${selected} </strong></p> `)
+
+    // console.log(showRegistation)
+    // console.log(confirmationReturn)
   
 
-    // window.localStorage.setItem('name',name)
-    // window.localStorage.setItem('firstName',firstName)
-    // window.localStorage.setItem('email',email)
-    // window.localStorage.setItem('tele',tele)
-    // window.localStorage.setItem('genreSelectValues',genreSelectValues)
-    // window.localStorage.setItem('groupSelectValues',groupSelectValues)
-    // window.localStorage.setItem('selected',selected)
-
-    var confirmationReturn= window.localStorage.getItem('confirmationBinding')
-    var resultBinding=  window.localStorage.getItem('resultBinding')
-    confirmationReturn ="votre Inscription est bien valider !!";
-    resultBinding= showRegistation;
-    console.log(confirmationReturn)
-    console.log(resultBinding)
+    //save data in Localstorage
     window.localStorage.setItem('confirmationReturn',confirmationReturn)
-    window.localStorage.setItem('resultBinding',resultBinding)
+    // window.localStorage.setItem('resultBinding',resultBinding)
+    window.localStorage.setItem('showRegistation',showRegistation)
 
   } else {
     document.getElementById("globalError").innerHTML =
