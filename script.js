@@ -66,12 +66,12 @@ function validationForm() {
   if (selected == "") {
     document.getElementById("clubError").innerHTML =
       "Veuillez choisissez le choix du club!!";
-      return
+     
   }
   if (selected.length > 3) {
     document.getElementById("clubError").innerHTML =
       "Veuillez choisir 3 clubs au Maximum!!";
-      return
+     
   }
   
 
