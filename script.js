@@ -106,8 +106,8 @@ function validationForm() {
 
     // console.log(showRegistation)
     // console.log(confirmationReturn)
+    alert("Club  de votre choix est: " + selected);
   
-
     //save data in Localstorage
     window.localStorage.setItem('confirmationReturn',confirmationReturn)
     // window.localStorage.setItem('resultBinding',resultBinding)
@@ -121,7 +121,7 @@ function validationForm() {
      
   }
  
-  alert("Club  de votre choix est: " + selected);
+  
   //form Validation
   //   let formValid = true;
   //   if(name!= 30 || firstName!= 30 ||  tele.length != 10 || isNaN(tele) ||  isNaN (email) || genreSelectValues.length !== 0 ||groupSelectValues.length !== 0 || selected.length !== 0 || selected.length <=3) {
