@@ -112,6 +112,8 @@ function validationForm() {
     window.localStorage.setItem('confirmationReturn',confirmationReturn)
     // window.localStorage.setItem('resultBinding',resultBinding)
     window.localStorage.setItem('showRegistation',showRegistation)
+    // open page confirmation.html
+    window.open(href="confirmation.html", target='_blank');
 
   } else {
     document.getElementById("globalError").innerHTML =
@@ -130,7 +132,7 @@ function validationForm() {
   //   }
 
   
-  window.open(href="confirmation.html", target='_blank');
+ 
 }
 
 
