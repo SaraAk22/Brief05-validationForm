@@ -6,6 +6,8 @@ document.querySelector("#clubsSelects").setAttribute("multiple", true);
 
 //FORM VALIDATOR
 function validationForm() {
+
+
   let name = document.getElementById("nom").value;
   let firstName = document.getElementById("prenom").value;
   let email = document.getElementById("email").value;
@@ -66,15 +68,14 @@ function validationForm() {
   if (selected == "") {
     document.getElementById("clubError").innerHTML =
       "Veuillez choisissez le choix du club!!";
-     
+      
   }
   if (selected.length > 3) {
     document.getElementById("clubError").innerHTML =
       "Veuillez choisir 3 clubs au Maximum!!";
-     
+      
   }
   
-
   if (
     name.length <= 30 &&
     namePattern.test(name) &&
@@ -83,45 +84,40 @@ function validationForm() {
     ((tele.length == 10) && (phonePattern.test(tele))) &&
     genreSelectValues.length !== 0 &&
     groupSelectValues.length !== 0 &&
-    selected.length !== 0 
-  ) {
+    (selected.length !== 0 && selected.length <=3) )
+  {
+      //Binding Data with second page : confirmation.html 
+    
+                //recieve data from confirmation.html
+      var confirmationReturn= window.localStorage.getItem('confirmationBinding')
+      // var resultBinding=  window.localStorage.getItem('resultBinding')
 
+                //Assign values to this Data
+      confirmationReturn ="votre Inscription est bien valider !!";
+      showRegistation.push( 
+        `<p>Vous etes bien enregistrer autant que: <strong>${name} </strong></p>
+      <p>Votre Prénom est :<strong>${firstName} </strong></p>
+      <p>Votre email est : <strong>${email } </strong></p>
+      <p>Votre Télephone est :<strong>${tele} </strong></p>
+      <p>Votre Genre est : <strong>${genreSelectValues} </strong></p> 
+      <p>Votre Groupe choisi est :<strong>${groupSelectValues} </strong></p> 
+      <p>Votre choix du Club(s) est : <strong>${selected} </strong></p> `)
 
-    //Binding Data with second page : confirmation.html 
-  
-              //recieve data from confirmation.html
-    var confirmationReturn= window.localStorage.getItem('confirmationBinding')
-    // var resultBinding=  window.localStorage.getItem('resultBinding')
-
-              //Assign values to this Data
-    confirmationReturn ="votre Inscription est bien valider !!";
-    showRegistation.push( 
-      `<p>Vous etes bien enregistrer autant que: <strong>${name} </strong></p>
-    <p>Votre Prénom est :<strong>${firstName} </strong></p>
-    <p>Votre email est : <strong>${email } </strong></p>
-    <p>Votre Télephone est :<strong>${tele} </strong></p>
-    <p>Votre Genre est : <strong>${genreSelectValues} </strong></p> 
-    <p>Votre Groupe choisi est :<strong>${groupSelectValues} </strong></p> 
-    <p>Votre choix du Club(s) est : <strong>${selected} </strong></p> `)
-
-    // console.log(showRegistation)
-    // console.log(confirmationReturn)
-    alert("Club  de votre choix est: " + selected);
-  
-    //save data in Localstorage
-    window.localStorage.setItem('confirmationReturn',confirmationReturn)
-    // window.localStorage.setItem('resultBinding',resultBinding)
-    window.localStorage.setItem('showRegistation',showRegistation)
-    // open page confirmation.html
-    window.open(href="confirmation.html", target='_blank');
+      // console.log(showRegistation)
+      // console.log(confirmationReturn)
+    
+      alert("Club  de votre choix est: " + selected);
+      //save data in Localstorage
+      window.localStorage.setItem('confirmationReturn',confirmationReturn)
+      // window.localStorage.setItem('resultBinding',resultBinding)
+      window.localStorage.setItem('showRegistation',showRegistation)
+      window.open(href="confirmation.html", target='_blank');
 
   } else {
     document.getElementById("globalError").innerHTML =
       "Veuillez remplir votre formulaire!!";
      
   }
- 
-  
   //form Validation
   //   let formValid = true;
   //   if(name!= 30 || firstName!= 30 ||  tele.length != 10 || isNaN(tele) ||  isNaN (email) || genreSelectValues.length !== 0 ||groupSelectValues.length !== 0 || selected.length !== 0 || selected.length <=3) {
@@ -130,9 +126,6 @@ function validationForm() {
   //   if(!formValid){
   //       e.preventDefault();
   //   }
-
-  
- 
 }
 
 
