@@ -84,7 +84,8 @@ function validationForm() {
     ((tele.length == 10) && (phonePattern.test(tele))) &&
     genreSelectValues.length !== 0 &&
     groupSelectValues.length !== 0 &&
-    selected.length !== 0 && selected.length <=3 )
+    selected.length !== 0 && 
+    selected.length <= 3 )
   {
       //Binding Data with second page : confirmation.html 
     
